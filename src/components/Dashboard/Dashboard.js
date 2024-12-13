@@ -4,7 +4,7 @@ import {
     setSelectedId,
     setExpenseData,
     setExpenseFilterData
-  } from '../store/expenseSlice';
+  } from '../../store/expenseSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { monthsOptions, expenseTypeOptions } from "./constants"
 import "./Dashboard.css";
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
       return (
         <>
-            <h1 className='m-b-20'>Expense Tracker  {expenseData.length > 0 && "- Total expense amount: $" + totalExpenses}</h1>  
+            <h1 className='m-b-20'>Expense Tracker  {expenseData.length && "- Total expense amount: $" + totalExpenses}</h1>  
             <div>
                 <div className='float-left'>
                 <label><b>Filter By : </b></label>
@@ -111,7 +111,7 @@ const Dashboard = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {tableRecords.length> 0 && tableRecords.map((item, index) => (
+                {tableRecords.length && tableRecords.map((item, index) => (
                     <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{item.name}</td>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import AddExpense from './components/AddExpense';
-import Dashboard from './components/Dashboard';
+import AddExpense from './components/Dashboard/AddExpense';
+import Dashboard from './components/Dashboard/Dashboard';
 import {Provider} from 'react-redux';
 import store from './store/store';
 import './App.css';

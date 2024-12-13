@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   setSelectedId,
   setExpenseData,
-} from '../store/expenseSlice';
+} from '../../store/expenseSlice';
 import { expenseTypeOptions } from "./constants"
 
 const AddExpense = () => {
@@ -15,7 +15,7 @@ const AddExpense = () => {
   const { id : editId } = useParams();
   
   useEffect(() => {
-    if (editId && editId !== null && editId !== "" && expenseData.length > 0 ) {
+    if (editId && editId !== null && editId !== "" && expenseData.length) {
       dispatch(setSelectedId(editId.toString()))
       setFormData(expenseData.find((item) => item.id.toString() === editId.toString()));
     }
