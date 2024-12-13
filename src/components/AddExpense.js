@@ -5,22 +5,14 @@ import {
   setSelectedId,
   setExpenseData,
 } from '../store/expenseSlice';
+import { expenseTypeOptions } from "./constants"
+
 const AddExpense = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ id: Date.now(), name: '', expenseType: "", expenseDate:new Date(), amount: '' });
   const { expenseData } = useSelector((state) => state.expense);
   const dispatch = useDispatch();
   const { id : editId } = useParams();
-
-  const options = [
-    { value: 'Housing', label: 'Housing' },
-    { value: 'Utilities', label: 'Utilities' },
-    { value: 'Travel', label: 'Travel' },
-    { value: 'Health-Care', label: 'Health-Care' },
-    { value: 'Child-Care', label: 'Child-Care' },
-    { value: 'Emergency-Fund', label: 'Emergency-Fund' },
-  ];
-
   
   useEffect(() => {
     if (editId && editId !== null && editId !== "" && expenseData.length > 0 ) {
@@ -77,7 +69,7 @@ const AddExpense = () => {
                     <label for="email" className="form-label">Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <select value={formData.expenseType} name="expenseType" onChange={handleChange} required>
                       <option value={""}> {"Select Expense Type"}</option>
-                      {options.map((item) => (<option value={item.value}> {item.label}</option>))}
+                      {expenseTypeOptions.map((item) => (<option value={item.value}> {item.label}</option>))}
                     </select>
                 </div>
                 <div>
