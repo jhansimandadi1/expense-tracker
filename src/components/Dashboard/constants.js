@@ -1,3 +1,4 @@
+export const title = "Expense Tracker - Total expense amount: $"
 export const monthsOptions = [
     { value: 1, label: 'January' },
     { value: 2, label: 'February' },
@@ -21,3 +22,10 @@ export const monthsOptions = [
     { value: 'Child-Care', label: 'Child-Care' },
     { value: 'Emergency-Fund', label: 'Emergency-Fund' },
   ];
+
+  export const tableColumns = [
+    { name:"Expense Name", key:"name" },
+    { name:"Expense Type", key:"expenseType" },
+    { name:"Date", key:"expenseDate" },
+    { name:"Amount", key:"amount" },
+  ]
