@@ -29,3 +29,37 @@ export const monthsOptions = [
     { name:"Date", key:"expenseDate" },
     { name:"Amount", key:"amount" },
   ]
+
+  export const inputsArray = [
+    { tag:'input',
+      type:'text',
+      name:"name",
+      placeholder: "Expense Name",
+      required: true,
+      pattren: "",
+      label: "Name"
+    },
+    { tag:'select',
+      name:"expenseType",
+      placeholder: "Expense Type",
+      required: true,
+      options: expenseTypeOptions,
+      label: "Type"
+    },
+    { tag:'input',
+      type:'date',
+      name:"expenseDate",
+      placeholder: "Expense Date",
+      required: true,
+      pattren: "",
+      label: "Date"
+    },
+    { tag:'input',
+      type:'number',
+      name:"amount",
+      placeholder: "Expense amount",
+      required: true,
+      pattren: "",
+      label: "Amount"
+    },
+  ]
