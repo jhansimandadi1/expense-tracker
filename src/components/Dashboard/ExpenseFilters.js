@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {
   setExpenseFilterData,
@@ -7,20 +7,24 @@ import {useDispatch} from 'react-redux';
 import {monthsOptions, expenseTypeOptions} from './constants';
 
 export const ExpenseFilters = () => {
-  const [filterData, setFilterData] = useState ({
+  const [filterData, setFilterData] = useState({
     selectedMonth: '',
     selectedYear: '',
     selectedType: '',
   });
   const dispatch = useDispatch ();
-  const currentYear = new Date ().getFullYear ();
+  const currentYear = new Date ().getFullYear();
   const startYear = currentYear - 3;
   const endYear = currentYear + 3;
-
   const yearOptions = [];
-  for (let year = startYear; year <= endYear; year++) {
-    yearOptions.push ({value: year, label: year});
-  }
+
+  useEffect(() => {
+    for (let year = startYear; year <= endYear; year++) {
+      yearOptions.push ({value: year, label: year});
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   const handleChange = e => {
     const {name, value} = e.target;
